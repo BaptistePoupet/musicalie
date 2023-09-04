@@ -1,0 +1,22 @@
+<table class="table mt-5">
+    <tread>
+        <tr>
+            <th>Nom</th>
+            <th>Code postal</th>
+            <th>Détails</th>
+        </tr>
+    </tread>
+    <tbody>
+        {% for departement in departements %}
+            <tr>
+                <td>{{ departement.nom }}</td>
+                <td>{{ departement.codePostal }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('departement_voir', {'id': departement.id}) }}">Voir </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+

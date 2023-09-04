@@ -1,0 +1,17 @@
+{% set numFestivals = festivals|length %}
+{% if numFestivals > 0 %}
+    {% for index, festival in festivals|reverse %}
+        {% if index < 3 %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ festival.affiche }}" width="200" height="400" alt="Image festival">
+                <div class="card-body">
+                    <h5 class="card-title">{{ festival.nom }}</h5>
+                    <p class="card-text">{{ festival.lieu }}</p>
+                    <a href="{{ path('festival_voir', {'id': festival.id}) }}" class="btn btn-primary">Voir le festival</a>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h1>Aucun festival pour le moment</h1>
+{% endif %}

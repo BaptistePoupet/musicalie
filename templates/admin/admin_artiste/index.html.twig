@@ -1,0 +1,41 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block contenu %}
+    <h1 class="mb-4">Artistes</h1>
+
+    <a href="{{ path('admin_artiste_ajouter') }}" class="btn btn-success">Ajouter un artiste</a>
+
+    <table class="table mt-5">
+        <tread>
+            <tr>
+                <th>Nom</th>
+                <th>Style musical</th>
+                <th>Festivals</th>
+                <th>Action</th>
+            </tr>
+        </tread>
+        <tbody>
+            {% for artiste in artistes %}
+                <tr>
+                    <td>{{ artiste.nom }}</td>
+                    <td>{{ artiste.styleMusical }}</td>
+                
+                    <td>
+                        {% for festival in artiste.festivals %}
+                            {{ festival.nom }} 
+
+                            {% if not loop.last %}
+                                -
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('admin_artiste_modifier', {id: artiste.id})}}">Modifier</a>
+                        <a class="btn btn-danger" onclick="return confirm ('Voulez-vous supprmier votre artiste?')"href="{{ path('admin_artiste_supprimer', {id: artiste.id})}}">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block contenu %}
+    <h1 class="mb-4">Festivals</h1>
+
+    <a href="{{ path('admin_festival_ajouter') }}" class="btn btn-success">Ajouter un festival</a>
+
+    <table class="table mt-5">
+        <tread>
+            <tr>
+                <th>Nom</th>
+                <th>Affiche</th>
+                <th>Lieu</th>
+                <th>Département</th>
+                <th>Artistes</th>
+                <th>Date de création</th>
+                <th>Action</th>
+            </tr>
+        </tread>
+        <tbody>
+            {% for festival in festivals %}
+                <tr>
+                    <td>{{ festival.nom }}</td>
+                    <td>{{ festival.affiche }}</td>
+                    <td>{{ festival.lieu}}</td>
+                    <td>{{ festival.dateCreation|date('d/m/Y')}}</td>
+                    <td>{{ festival.departement.nom }}</td>
+                   
+                    <td>
+                        {% for artiste in festival.artistes %}
+                            {{ artiste.nom }} 
+
+                            {% if not loop.last %}
+                                -
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('admin_festival_modifier', {id: festival.id})}}">Modifier</a>
+                        <a class="btn btn-danger" onclick="return confirm ('Voulez-vous supprmier votre festival?')"href="{{ path('admin_festival_supprimer', {id: festival.id})}}">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

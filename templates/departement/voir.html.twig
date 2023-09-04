@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Départements{% endblock %}
+
+{% block body %}
+<div class="container-detail-departement">
+    <h1>Departement {{departement.nom}} ({{departement.codePostal}})</h1>
+    <div class="block-festival-departement">{{ include('festival/index.html.twig') }}</div>
+</div>
+{% endblock %}

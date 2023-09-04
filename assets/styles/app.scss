@@ -1,0 +1,30 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: lightgray;
+}
+
+.container-home {
+    h1, table {
+        text-align: center;
+    }
+    padding: 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.block-festival {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav {
+    padding: 0 1rem !important;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}

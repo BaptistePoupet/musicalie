@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{ path('festival_index') }}"><img src="{{ asset('images/logo_musicalie.png') }}" width="190" height="50"></a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('festival_index') }}">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('festival_index') }}">Festival</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('festival_index') }}">Département</a>
+      </li>
+    </ul>
+  </div>
+  <form class="d-flex" role="search">
+    <a href="{{ path('admin_festival_lister') }}"><i class="fa-regular fa-user"></i> Se connecter</a>
+  </form>
+</nav>

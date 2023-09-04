@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Festival {% endblock %}
+
+{% block body %}
+    <div class="container-detail-festival">
+        <h1>{{festival.nom}} </h1>
+        <img width="286" height="400" src="{{ festival.affiche }}">
+        <h3>À {{ festival.lieu }} ({{festival.departement.nom}})</h3>
+        <h4>Avec : 
+        {% for artiste in festival.artistes %}
+            {{ artiste.nom }} 
+
+            {% if not loop.last %}
+                -
+            {% endif %}
+        {% endfor %}
+        </h4>
+    </div>
+{% endblock %}

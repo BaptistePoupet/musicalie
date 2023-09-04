@@ -1,0 +1,40 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block contenu %}
+    <h1 class="mb-4">Départements</h1>
+
+    <a href="{{ path('admin_departement_ajouter') }}" class="btn btn-success">Ajouter un département</a>
+
+    <table class="table mt-5">
+        <tread>
+            <tr>
+                <th>Nom</th>
+                <th>Code Postal</th>
+                <th>Festivals</th>
+                <th>Action</th>
+            </tr>
+        </tread>
+        <tbody>
+            {% for departement in departements %}
+                <tr>
+                    <td>{{ departement.nom }}</td>
+                    <td>{{ departement.codePostal }}</td>
+                    <td>
+                        {% for festival in departement.festivals %}
+                            {{ festival.nom }} 
+
+                            {% if not loop.last %}
+                                -
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('admin_departement_modifier', {id: departement.id})}}">Modifier</a>
+                        <a class="btn btn-danger" onclick="return confirm ('Voulez-vous supprmier votre departement?')"href="{{ path('admin_departement_supprimer', {id: departement.id})}}">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

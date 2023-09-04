@@ -1,0 +1,27 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block contenu %}
+<div class="form">
+    <h1 class="mb-4">{{ app.request.get('_route') == "admin_artiste_ajouter" ? 'Ajouter':'Modifier' }} les festivals</h1>
+    {{ form_start(form) }}
+        <div class="col-4">
+            {{ form_row(form.nom) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.affiche) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.lieu) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.departement) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.artistes) }}
+        </div>
+        <div class="col-4">
+            {{ form_row(form.valider) }}
+        </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
